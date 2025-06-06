@@ -463,10 +463,11 @@ a:hover {
 
     .hero,
     .bottom-hero {
-        background-attachment: initial;
+        background-attachment: scroll !important;
     }
 
-    .hero:before {
+    .hero::after,
+    .bottom-hero::after {
         background-size: cover;
         background-position: center center;
     }
