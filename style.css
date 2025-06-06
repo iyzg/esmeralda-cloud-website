@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: white;
+    color: black;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    height: 100dvh;
+    /* Dynamic viewport height for mobile browsers */
+    min-height: 500px;
+    position: relative;
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    background-image: url('static/solarpunk.png');
+
+    /* Background sizing and positioning options */
+    background-size: cover;
+    /* Scales image to cover entire container */
+    background-position: center center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents image repetition */
+    background-attachment: fixed;
+    /* Optional: creates parallax effect */
+
+    /* Alternative background-size options:
+    background-size: contain;        - Fits entire image within container
+    background-size: 100% 100%;      - Stretches image to fill exactly (may distort)
+    background-size: auto;           - Uses image's natural size
+    */
+
+    /* Alternative background-position options:
+    background-position: top center; - Focuses on top of image
+    background-position: bottom left;- Focuses on bottom left
+    background-position: 25% 75%;    - Custom positioning
+    */
+
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at bottom left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 70%),
+        linear-gradient(45deg, rgba(0, 0, 0, 0.2) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    color: white;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    margin-bottom: 16px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Grid Layout for People Section */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Different colored headers for each section */
+.people-header {
+    background: linear-gradient(135deg, #4a7c59 0%, #5d8f6a 100%);
+}
+
+.volunteers-header {
+    background: linear-gradient(135deg, #3d7ea6 0%, #5094b8 100%);
+}
+
+.sponsors-header {
+    background: linear-gradient(135deg, #b8943d 0%, #d4a94a 100%);
+}
+
+.projects-header {
+    background: linear-gradient(135deg, #2d7d6b 0%, #4a9d87 100%);
+}
+
+
+/* Info cards for other sections */
+.info-card {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-content p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.placeholder-text {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-content a {
+    color: #4a7c59;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.card-content a:hover {
+    background-color: #4a7c59;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Base header styles shared across all sections */
+.grid-header {
+    grid-column: span 2;
+    border-radius: 12px;
+    padding: 30px;
+    color: white;
+    aspect-ratio: 2/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.grid-header h2 {
+    font-size: 36px;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    text-transform: lowercase;
+    font-style: italic;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.person-card {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+
+    /* Placeholder background - replace with actual person photos */
+    background: linear-gradient(45deg, #f0f0f0 0%, #e0e0e0 100%);
+    background-size: cover;
+    background-position: center;
+
+    /* For demo purposes, using a pattern background */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f5f5"/><text x="50" y="45" font-family="Arial" font-size="12" fill="%23999" text-anchor="middle">Photo</text><text x="50" y="60" font-family="Arial" font-size="8" fill="%23bbb" text-anchor="middle">Coming Soon</text></svg>');
+}
+
+.person-card[data-name="nick foley"] {
+    background-image: url('static/nickfoley.jpg');
+}
+
+.person-card[data-name="ben james"] {
+    background-image: url('static/benjames.jpg');
+}
+
+.person-card[data-name="guthrie gintzler"] {
+    background-image: url('static/guthriegintzler.jpg');
+}
+
+.person-card[data-name="bjorn heinbokel"] {
+    background-image: url('static/bjornheinbokel.jpg');
+}
+
+.person-card[data-name="luke murry"] {
+    background-image: url('static/lukemurry.jpg');
+}
+
+.person-card[data-name="andy rapista"] {
+    background-image: url('static/andyrapista.jpg');
+}
+
+.person-card[data-name="ivy zhang"] {
+    background-image: url('static/ivyzhang.jpg');
+}
+
+.person-card[data-name="ami zou"] {
+    background-image: url('static/amizou.jpg');
+}
+
+.person-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at bottom left, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 40%, transparent 70%),
+        rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.person-card:hover::before {
+    background:
+        radial-gradient(circle at bottom left, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 70%),
+        rgba(0, 0, 0, 0.3);
+}
+
+.person-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.person-name {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Update section spacing */
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 40px 0 20px 0;
+    text-transform: lowercase;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+li:before {
+    content: "- ";
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+
+    /* Tablet - 3 columns */
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .main-content {
+        max-width: 1000px;
+        padding: 35px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh;
+        height: 100dvh;
+        /* Dynamic viewport height for mobile */
+        height: calc(100vh - env(safe-area-inset-top));
+        /* Account for notches */
+        min-height: 450px;
+    }
+
+    .hero-content {
+        padding: 30px 20px;
+    }
+
+    .main-content {
+        max-width: none;
+        padding: 30px 15px;
+    }
+
+    /* Mobile - 2 columns */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .grid-header {
+        grid-column: span 2;
+        padding: 25px;
+    }
+
+    .grid-header h2 {
+        font-size: 30px;
+    }
+
+    .grid-header::before {
+        width: 100px;
+        height: 100px;
+        bottom: -15px;
+        right: -15px;
+    }
+
+    .person-name {
+        font-size: 14px;
+        bottom: 12px;
+        left: 12px;
+    }
+
+    h2 {
+        margin: 30px 0 15px 0;
+    }
+
+    section {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 100vh;
+        height: 100dvh;
+        /* Dynamic viewport height for mobile */
+        height: calc(100vh - env(safe-area-inset-top));
+        /* Account for notches */
+        min-height: 400px;
+    }
+
+    .hero-content {
+        padding: 20px 15px;
+    }
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    /* Grid stays 2 columns on mobile */
+    .grid-container {
+        gap: 12px;
+    }
+
+    .grid-header {
+        padding: 20px;
+        aspect-ratio: 2/1;
+    }
+
+    .grid-header h2 {
+        font-size: 24px;
+    }
+
+    .grid-header::before {
+        width: 80px;
+        height: 80px;
+        bottom: -10px;
+        right: -10px;
+    }
+
+    .info-card {
+        padding: 15px;
+    }
+
+    .card-content p {
+        font-size: 13px;
+    }
+
+    .placeholder-text {
+        font-size: 11px;
+    }
+
+    .person-name {
+        font-size: 13px;
+        bottom: 10px;
+        left: 10px;
+    }
+
+    ul {
+        margin-left: 15px;
+    }
+}
