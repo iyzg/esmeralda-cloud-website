@@ -11,23 +11,30 @@ body {
     line-height: 1.6;
 }
 
+.hero-bg-image,
+.bottom-hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 110vh;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
 /* Hero Section */
 .hero {
     height: 110vh;
     height: 110dvh;
     min-height: 600px;
     position: relative;
-    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-    background-image: url('static/solarpunk.png');
-
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
+    /* background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%); */
+    /* Removed background-image and background-attachment */
     display: flex;
     align-items: flex-end;
     overflow: hidden;
+    z-index: 3;
 }
 
 .hero::before {
@@ -40,16 +47,15 @@ body {
     background:
         radial-gradient(ellipse at bottom left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 70%),
         linear-gradient(45deg, rgba(0, 0, 0, 0.2) 0%, transparent 60%);
-    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
     padding: 40px;
     margin-bottom: 10dvh;
     color: white;
     max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.0);
 }
 
 .hero-title {
@@ -74,6 +80,8 @@ body {
     margin: 0 auto;
     padding: 40px 20px;
     background-color: white;
+    position: relative;
+    z-index: 5;
 }
 
 /* Grid Layout for People Section */
@@ -396,12 +404,6 @@ a:hover {
         padding: 30px 20px;
     }
 
-    .hero,
-    .bottom-hero {
-        background-attachment: scroll !important;
-        background-size: cover;
-        background-position: center center;
-    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -462,25 +464,6 @@ a:hover {
         margin-left: 15px;
     }
 
-    .hero,
-    .bottom-hero {
-        background-attachment: scroll !important;
-    }
-
-    .hero::after,
-    .bottom-hero::after {
-        content: "";
-        display: block;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('static/solarpunk.png') !important;
-        background-size: cover;
-        background-position: center center;
-        z-index: -1;
-    }
 }
 
 /* Person Cards */
@@ -610,13 +593,6 @@ a:hover {
     height: 100dvh;
     min-height: 600px;
     position: relative;
-    background: linear-gradient(135deg, #1a3d1e 0%, #2c5530 80%);
-    background-image: url('static/droneshot.jpg');
-
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 
     display: flex;
     align-items: center;
