@@ -96,7 +96,7 @@ body {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 32px;
     margin-top: 20px;
 }
 
@@ -168,46 +168,35 @@ body {
 /* Base header styles shared across all sections */
 .grid-header {
     grid-column: span 2;
-    border-radius: 12px;
-    padding: 30px;
+    border-radius: 16px;
+    padding: 20px;
     color: white;
-    aspect-ratio: 2/1;
+    aspect-ratio: 3/1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     position: relative;
     overflow: hidden;
 }
 
 .grid-header h2 {
-    font-size: 36px;
-    margin: 0;
+    font-size: 42px;
+    margin: 0 0 0 0;
     font-family: 'Playfair Display', serif;
-    text-transform: lowercase;
     font-style: italic;
-    font-weight: 600;
+    text-transform: lowercase;
+    font-weight: normal;
     position: relative;
     z-index: 2;
-    text-align: center;
 }
 
-.person-card {
-    aspect-ratio: 1;
-    border-radius: 12px;
+.grid-header .subtitle {
+    font-size: 16px;
+    opacity: 0.8;
+    font-weight: 300;
     position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-
-    /* Placeholder background - replace with actual person photos */
-    background: linear-gradient(45deg, #f0f0f0 0%, #e0e0e0 100%);
-    background-size: cover;
-    background-position: center;
-
-    /* For demo purposes, using a pattern background */
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f5f5"/><text x="50" y="45" font-family="Arial" font-size="12" fill="%23999" text-anchor="middle">Photo</text><text x="50" y="60" font-family="Arial" font-size="8" fill="%23bbb" text-anchor="middle">Coming Soon</text></svg>');
+    z-index: 2;
+    margin-bottom: 0px;
 }
 
 .person-card[data-name="nick foley"] {
@@ -242,6 +231,29 @@ body {
     background-image: url('static/amizou.jpg');
 }
 
+.person-card[data-name="jupyter"] {
+    background-image: url('static/jupyter.png');
+}
+
+.person-card {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+
+    /* Placeholder background - replace with actual person photos */
+    background: linear-gradient(45deg, #f0f0f0 0%, #e0e0e0 100%);
+    background-size: cover;
+    background-position: center;
+
+    /* For demo purposes, using a pattern background */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f5f5"/><text x="50" y="45" font-family="Arial" font-size="12" fill="%23999" text-anchor="middle">Photo</text><text x="50" y="60" font-family="Arial" font-size="8" fill="%23bbb" text-anchor="middle">Coming Soon</text></svg>');
+}
+
 .person-card::before {
     content: '';
     position: absolute;
@@ -273,7 +285,7 @@ body {
     left: 15px;
     color: white;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
     z-index: 2;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
