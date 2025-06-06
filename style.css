@@ -464,7 +464,7 @@ a:hover {
 
     .hero,
     .bottom-hero {
-        background-attachment: initial !important;
+        background-attachment: scroll !important;
     }
 
     .hero::after,
