@@ -405,11 +405,7 @@ a:hover {
 
 @media (max-width: 480px) {
     .hero {
-        /* height: 100vh;
-        height: 100dvh; */
-        /* Dynamic viewport height for mobile */
         height: calc(110vh - env(safe-area-inset-top));
-        /* Account for notches */
         min-height: 500px;
     }
 
@@ -463,6 +459,16 @@ a:hover {
 
     ul {
         margin-left: 15px;
+    }
+
+    .hero,
+    .bottom-hero {
+        background-attachment: initial;
+    }
+
+    .hero:before {
+        background-size: cover;
+        background-position: center center;
     }
 }
 
