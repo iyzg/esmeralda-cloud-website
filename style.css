@@ -13,35 +13,17 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
-    height: 100dvh;
-    /* Dynamic viewport height for mobile browsers */
-    min-height: 500px;
+    height: 110vh;
+    height: 110dvh;
+    min-height: 600px;
     position: relative;
     background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
     background-image: url('static/solarpunk.png');
 
-    /* Background sizing and positioning options */
     background-size: cover;
-    /* Scales image to cover entire container */
     background-position: center center;
-    /* Centers the image */
     background-repeat: no-repeat;
-    /* Prevents image repetition */
     background-attachment: fixed;
-    /* Optional: creates parallax effect */
-
-    /* Alternative background-size options:
-    background-size: contain;        - Fits entire image within container
-    background-size: 100% 100%;      - Stretches image to fill exactly (may distort)
-    background-size: auto;           - Uses image's natural size
-    */
-
-    /* Alternative background-position options:
-    background-position: top center; - Focuses on top of image
-    background-position: bottom left;- Focuses on bottom left
-    background-position: 25% 75%;    - Custom positioning
-    */
 
     display: flex;
     align-items: flex-end;
@@ -65,6 +47,7 @@ body {
     position: relative;
     z-index: 2;
     padding: 40px;
+    margin-bottom: 10dvh;
     color: white;
     max-width: 600px;
 }
@@ -73,7 +56,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 400;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -199,42 +182,6 @@ body {
     margin-bottom: 0px;
 }
 
-.person-card[data-name="nick foley"] {
-    background-image: url('static/nickfoley.jpg');
-}
-
-.person-card[data-name="ben james"] {
-    background-image: url('static/benjames.jpg');
-}
-
-.person-card[data-name="guthrie gintzler"] {
-    background-image: url('static/guthriegintzler.jpg');
-}
-
-.person-card[data-name="bjorn heinbokel"] {
-    background-image: url('static/bjornheinbokel.jpg');
-}
-
-.person-card[data-name="luke murry"] {
-    background-image: url('static/lukemurry.jpg');
-}
-
-.person-card[data-name="andy rapista"] {
-    background-image: url('static/andyrapista.jpg');
-}
-
-.person-card[data-name="ivy zhang"] {
-    background-image: url('static/ivyzhang.jpg');
-}
-
-.person-card[data-name="ami zou"] {
-    background-image: url('static/amizou.jpg');
-}
-
-.person-card[data-name="jupyter"] {
-    background-image: url('static/jupyter.png');
-}
-
 .person-card {
     aspect-ratio: 1;
     border-radius: 12px;
@@ -252,6 +199,44 @@ body {
 
     /* For demo purposes, using a pattern background */
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f5f5"/><text x="50" y="45" font-family="Arial" font-size="12" fill="%23999" text-anchor="middle">Photo</text><text x="50" y="60" font-family="Arial" font-size="8" fill="%23bbb" text-anchor="middle">Coming Soon</text></svg>');
+}
+
+/* Add initials for cards without specific images */
+.person-card::after {
+    content: attr(data-initials);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.volunteers-header~.person-card:not([data-name="parker duff"]):not([data-name="harrison lin"]) {
+    background: linear-gradient(135deg, #3d7ea6 0%, #5094b8 35%, #7bb3d1 100%);
+}
+
+.sponsors-header~.person-card:not([data-name="dragonfly farms"]):not([data-name="john rose"]) {
+    background: linear-gradient(135deg, #b8943d 0%, #d4a94a 35%, #e8c168 100%);
+}
+
+.projects-header~.person-card:not([data-name="jupyter"]) {
+    background: linear-gradient(135deg, #2d7d6b 0%, #4a9d87 35%, #6bbba3 100%);
+}
+
+.person-card:not([data-name="nick foley"]):not([data-name="ben james"]):not([data-name="guthrie gintzler"]):not([data-name="bjorn heinbokel"]):not([data-name="luke murry"]):not([data-name="andy rapista"]):not([data-name="ivy zhang"]):not([data-name="ami zou"]):not([data-name="jupyter"]):not([data-name="john rose"]):not([data-name="harrison lin"]):not([data-name="parker duff"]):not([data-name="dragonfly farms"]):hover {
+    background-size: 110% 110%;
+}
+
+.person-card:not([data-name="nick foley"]):not([data-name="ben james"]):not([data-name="guthrie gintzler"]):not([data-name="bjorn heinbokel"]):not([data-name="luke murry"]):not([data-name="andy rapista"]):not([data-name="ivy zhang"]):not([data-name="ami zou"]):not([data-name="jupyter"]):not([data-name="john rose"]):not([data-name="harrison lin"]):not([data-name="parker duff"]):not([data-name="dragonfly farms"]):hover::after {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
 }
 
 .person-card::before {
@@ -346,16 +331,17 @@ a:hover {
 
 @media (max-width: 768px) {
     .hero {
-        height: 100vh;
-        height: 100dvh;
+        /* height: 100vh;
+        height: 100dvh; */
         /* Dynamic viewport height for mobile */
-        height: calc(100vh - env(safe-area-inset-top));
+        height: calc(110vh - env(safe-area-inset-top));
         /* Account for notches */
-        min-height: 450px;
+        min-height: 550px;
     }
 
     .hero-content {
         padding: 30px 20px;
+        margin-bottom: 8dvh;
     }
 
     .main-content {
@@ -402,16 +388,17 @@ a:hover {
 
 @media (max-width: 480px) {
     .hero {
-        height: 100vh;
-        height: 100dvh;
+        /* height: 100vh;
+        height: 100dvh; */
         /* Dynamic viewport height for mobile */
-        height: calc(100vh - env(safe-area-inset-top));
+        height: calc(110vh - env(safe-area-inset-top));
         /* Account for notches */
-        min-height: 400px;
+        min-height: 500px;
     }
 
     .hero-content {
         padding: 20px 15px;
+        margin-bottom: 10dvh;
     }
 
     .main-content {
@@ -459,5 +446,126 @@ a:hover {
 
     ul {
         margin-left: 15px;
+    }
+}
+
+/* Person Cards */
+.person-card[data-name="nick foley"] {
+    background-image: url('static/nickfoley.jpg');
+}
+
+.person-card[data-name="ben james"] {
+    background-image: url('static/benjames.jpg');
+}
+
+.person-card[data-name="guthrie gintzler"] {
+    background-image: url('static/guthriegintzler.jpg');
+}
+
+.person-card[data-name="bjorn heinbokel"] {
+    background-image: url('static/bjornheinbokel.jpg');
+}
+
+.person-card[data-name="luke murry"] {
+    background-image: url('static/lukemurry.jpg');
+}
+
+.person-card[data-name="andy rapista"] {
+    background-image: url('static/andyrapista.jpg');
+}
+
+.person-card[data-name="ivy zhang"] {
+    background-image: url('static/ivyzhang.jpg');
+}
+
+.person-card[data-name="ami zou"] {
+    background-image: url('static/amizou.jpg');
+}
+
+.person-card[data-name="jupyter"] {
+    background-image: url('static/jupyter.png');
+}
+
+.person-card[data-name="john rose"] {
+    background-image: url('static/lavish.jpg');
+}
+
+.person-card[data-name="harrison lin"] {
+    background-image: url('static/harrisonlin.jpg');
+}
+
+.person-card[data-name="parker duff"] {
+    background-image: url('static/parkerduff.jpg');
+}
+
+.person-card[data-name="dragonfly farms"] {
+    background-image: url('static/dragonfly.jpg');
+}
+
+/* Hero Bottom Overlay */
+.hero-cta-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hero-cta-text {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-cta-button {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: #2c5530;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid transparent;
+}
+
+.hero-cta-button:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
+    color: #2c5530;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 110vh;
+        height: 110dvh;
+        height: calc(110vh - env(safe-area-inset-top));
+        min-height: 550px;
+    }
+
+    .hero-cta-overlay {
+        padding: 15px 15px;
+    }
+
+    .hero-cta-text {
+        font-size: 12px;
+    }
+
+    .hero-cta-button {
+        padding: 4px 8px;
+        font-size: 12px;
     }
 }
