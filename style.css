@@ -397,11 +397,9 @@ a:hover {
 
     .hero,
     .bottom-hero {
-        background-attachment: scroll;
+        background-attachment: initial;
         background-size: cover;
-        /* Ensure high quality on mobile */
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
+        background-position: center center;
     }
 }
 
