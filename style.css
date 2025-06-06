@@ -394,6 +394,15 @@ a:hover {
     .bottom-hero-content {
         padding: 30px 20px;
     }
+
+    .hero,
+    .bottom-hero {
+        background-attachment: scroll;
+        background-size: cover;
+        /* Ensure high quality on mobile */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
 }
 
 @media (max-width: 480px) {
