@@ -226,7 +226,7 @@ body {
     background: linear-gradient(135deg, #b8943d 0%, #d4a94a 35%, #e8c168 100%);
 }
 
-.projects-header~.person-card:not([data-name="jupyter"]) {
+.projects-header~.person-card:not([data-name="jupyter"]):not([data-name="llama"]) {
     background: linear-gradient(135deg, #2d7d6b 0%, #4a9d87 35%, #6bbba3 100%);
 }
 
